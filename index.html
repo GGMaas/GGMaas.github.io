@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
   <head>
-    s
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
@@ -14,7 +13,24 @@
       <section class="screen-container homepage" id="homepage">
         <div class="homepage-box">
           <h1>Welcome,</h1>
-          <img src="img/Homepage1.gif" alt="Homepage gif" />
+          <img
+            src="img/Homepage1.jpg"
+            data-gif="img/Homepage1.gif"
+            id="homepage-gif"
+            alt="Homepage gif"
+          />
+
+          <!-- Lazy loading for the GIF: start with a static image and switch to the GIF after the page loads. -->
+          <script>
+            window.addEventListener("load", function () {
+              const img = document.getElementById("homepage-gif");
+              const gifUrl = img.getAttribute("data-gif");
+
+              if (img && gifUrl) {
+                img.src = gifUrl;
+              }
+            });
+          </script>
 
           <nav class="nav-section">
             <ul>
@@ -75,6 +91,7 @@
                 <div class="project-image">
                   <img
                     src="img/project3-preview.webp"
+                    loading="lazy"
                     alt="Preview van Security Operations Center project"
                   />
                 </div>
@@ -88,6 +105,7 @@
                 <div class="project-image">
                   <img
                     src="img/project4-preview.webp"
+                    loading="lazy"
                     alt="Preview van Project 4"
                   />
                 </div>
@@ -106,6 +124,7 @@
                 <div class="project-image">
                   <img
                     src="img/project1-preview.webp"
+                    loading="lazy"
                     alt="Preview van Sustainable Locker project"
                   />
                 </div>
@@ -128,6 +147,7 @@
                 <div class="project-image">
                   <img
                     src="img/project2-preview.webp"
+                    loading="lazy"
                     alt="Preview van Hotelator project"
                   />
                 </div>
